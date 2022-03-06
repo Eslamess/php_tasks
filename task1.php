@@ -6,18 +6,27 @@
 
 
 $electricity_bill=150;
-
+$tax=0;
 if($electricity_bill <50){
+	$tax=3.50;
 
-	echo "3.50/unit";
+	$result=$electricity_bill*$tax;
+
+	echo "your electricity_bill is " .  $result;
 } 
 elseif($electricity_bill >=50 && $electricity_bill <150){
+	$tax=4.00;
+	$result=$electricity_bill*$tax;
 
-	echo "4.00/unit";
+	echo "your electricity_bill is " . $result;
 } 
 else{
 
-	echo "6.50/unit";
+	$tax=6.50;
+	$result=$electricity_bill*$tax;
+
+	echo "your electricity_bill is " . $result;
 
 }
+
 
