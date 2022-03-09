@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Address = test_input($_POST["Address"]);
    
     if (strlen($Address) != 10) {
-      $AddressErr = "Invalid address it must be =10 character";
+      $AddressErr = "Invalid address it must be <10 character";
       $Address= $empty;
     }
   }
@@ -114,14 +114,19 @@ function test_input($data) {
 
 <?php
 echo "<h2>Your Input:</h2>";
-echo $name;
-echo "<br>";
-echo $email;
+echo "your name is : ". $name;
 echo "<br>";
 
-echo $password;
+echo "your email is : ". $email;
 echo "<br>";
-echo $website;
+
+echo "your password is : ".$password;
+echo "<br>";
+
+echo $Address;
+echo  "your address is : " .  "<br>";
+ 
+echo  "your website url is : " .$website;
 echo "<br>";
 
 ?>
