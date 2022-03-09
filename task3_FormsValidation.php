@@ -9,8 +9,8 @@
 
 <?php
 
-$nameErr = $emailErr  = $websiteErr =$passErr= "";
-$name = $email = $website =$password ="";
+$nameErr = $emailErr  = $websiteErr =$passErr=$$AddressErr= "";
+$name = $email = $website =$password =$Address="";
 $empty= ""; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
