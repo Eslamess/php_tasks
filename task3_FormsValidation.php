@@ -11,7 +11,7 @@
 
 $nameErr = $emailErr  = $websiteErr =$passErr= "";
 $name = $email = $website =$password ="";
-$newname = $newemail=$wrongwebsite= ""; 
+$empty= ""; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
       $nameErr = "Only letters and white space allowed";
 
-      $name= $newname;
+      $name= $empty;
     }
   }
   
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $emailErr = "Invalid email format";
-      $email= $newemail;
+      $email= $empty;
     }
   }
 
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
     if (strlen($password) < 6) {
       $passErr = "Invalid password it must be >6";
-      $password= $newemail;
+      $password= $empty;
     }
   }
 
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
     if (strlen($Address) != 10) {
       $AddressErr = "Invalid address it must be =10 character";
-      $Address= $newemail;
+      $Address= $empty;
     }
   }
     
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
       $websiteErr = "Invalid URL";
 
-      $website= $wrongwebsite;
+      $website= $empty;
     }    
   }
 
