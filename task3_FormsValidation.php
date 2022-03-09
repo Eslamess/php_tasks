@@ -9,7 +9,7 @@
 
 <?php
 
-$nameErr = $emailErr  = $websiteErr =$passErr=$$AddressErr= "";
+$nameErr = $emailErr  = $websiteErr =$passErr=$AddressErr= "";
 $name = $email = $website =$password =$Address="";
 $empty= ""; 
 
