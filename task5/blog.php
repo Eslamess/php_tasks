@@ -1,40 +1,14 @@
 <?php
 session_start();
 
-
-
-
-
-
-function deleteLineInFile($line)
-{
-   $i=0;
-   $array=array();
-   
-   $data = fopen("data.txt", "r") or die("can't open the file");
-   while(!feof($read)) {
-      $array[$i] = fgets($data); 
-      ++$i;
-   }
-   fclose($read);
-   
-   $write = fopen("data.txt", "w") or die("can't open the file");
-   foreach($array as $a) {
-      if(!strstr($a,$string)) fwrite($write,$a);
-   }
-   fclose($write);
-}
-         
-
-
-   function deleteAll (){unlink("data.txt");}
+function deleteline($line){
+$data = fopen("data.txt", "r") or die("can't open the file");
+$content = file_get_contents('data.txt');
+$content = str_replace($line, '', $content);
+file_put_contents('data.txt', $content);
+};
 
 ?>
-
-
-
-
-
 
 <!DOCTYPE HTML>  
 <html>
@@ -44,21 +18,25 @@ function deleteLineInFile($line)
 </style>
 </head>
 <body> 
+
+<form >
 <h1 style="display: inline-block;"><?php echo $_SESSION["titel"] ?></h1>
-<button onclick="deleteLineInFile(<?php echo $_SESSION["titel"] ?>)">deleteline</button>
+
+
+<button type="submit" onclick="<?php deleteline( $_SESSION['titel'])?>">
+deleteline</button>
 <br>
 
 
 <p style="display: inline-block;"><?php echo $_SESSION["content"];?></p>
-<button onclick="deleteLineInFile(<?php echo $_SESSION["content"] ?>)">deleteline</button>
+
+<button type="submit"  onclick="deleteline( $_SESSION['content'])">deleteline</button>
 <br>
 
-<img src="uploads/<?php echo  $_SESSION["FinalName"];?>">
-<button onclick="deleteLineInFile(<?php echo $_SESSION["FinalName"] ?>)">deleteline</button>
+<img width="100px" height="100px" src="uploads/<?php echo  $_SESSION["FinalName"];?>">
+<button onclick="deleteline( $_SESSION['FinalName'])">deleteline</button>
 <br>
 
-<button onclick="deleteAll()">deleteAll</button>
-
-
+</form>
 </body>
 </html>
